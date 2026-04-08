@@ -1,0 +1,59 @@
+# 规则名称: Direct
+# 规则统计: 38
+# 说明: 强制直连规则 (基于 Repcz/Direct, 移除安卓专属规则, 整合国内流媒体)
+
+# Google 下载/更新 (国内有 CDN)
+DOMAIN,clientservices.googleapis.com
+DOMAIN,dl.google.com
+DOMAIN,dl.l.google.com
+DOMAIN,redirector.gvt1.com
+DOMAIN,update.googleapis.com
+DOMAIN-SUFFIX,blog.google
+DOMAIN-SUFFIX,googletraveladservices.com
+
+# Bilibili 直播/视频流
+DOMAIN,live.bilibili.com
+DOMAIN-SUFFIX,bilivideo.com
+DOMAIN-SUFFIX,bilivideo.cn
+DOMAIN-SUFFIX,biliapi.net
+DOMAIN-SUFFIX,hdslb.com
+
+# 咪咕视频/直播
+DOMAIN-SUFFIX,miguvideo.com
+DOMAIN-SUFFIX,migu.cn
+DOMAIN-SUFFIX,cmvideo.cn
+DOMAIN-SUFFIX,migucloud.com
+
+# 腾讯视频/直播
+DOMAIN,fairplay.l.qq.com
+DOMAIN,livew.l.qq.com
+DOMAIN,vd.l.qq.com
+DOMAIN,vi.l.qq.com
+DOMAIN-SUFFIX,video.qq.com
+DOMAIN-SUFFIX,v.qq.com
+DOMAIN-SUFFIX,livep.l.qq.com
+
+# 数据统计/广告归因 (iOS 也会用到, 直连即可)
+DOMAIN,analytics.strava.com
+DOMAIN,app.adjust.com
+DOMAIN,app.appsflyer.com
+DOMAIN,bdtj.tagtic.cn
+DOMAIN,log.mmstat.com
+DOMAIN,sycm.mmstat.com
+
+# Apple 生态常用 App
+DOMAIN,api.goodnotescloud.com
+DOMAIN-SUFFIX,goodnotesapp.com.cn
+DOMAIN-SUFFIX,fileball.app
+
+# IP/网络检测 (直连才能得到正确结果)
+DOMAIN,ifconfig.me
+DOMAIN-SUFFIX,cnspeedtest.cn
+DOMAIN-SUFFIX,test-ipv6.com
+
+# 字幕站
+DOMAIN-SUFFIX,pianyuan.org
+DOMAIN-SUFFIX,subhd.tv
+
+# SSH 直连
+DEST-PORT,22

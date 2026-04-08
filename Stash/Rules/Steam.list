@@ -1,0 +1,15 @@
+# 规则名称: Steam
+# 规则统计: 10
+# 说明: 仅保留 Steam 商店/社区 (移除国内 CDN 和下载镜像)
+
+# Steam 商店/社区
+DOMAIN-SUFFIX,s.team
+DOMAIN-SUFFIX,steam-api.com
+DOMAIN-SUFFIX,steam-chat.com
+DOMAIN-SUFFIX,steam.tv
+DOMAIN-SUFFIX,steamcommunity.com
+DOMAIN-SUFFIX,steampowered.com
+DOMAIN-SUFFIX,steamstatic.com
+DOMAIN-SUFFIX,steamstat.us
+DOMAIN-SUFFIX,steamgames.com
+DOMAIN-SUFFIX,valvesoftware.com
