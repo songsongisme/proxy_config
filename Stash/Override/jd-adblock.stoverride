@@ -1,0 +1,43 @@
+name: 京东去广告净化
+desc: |-
+  拦截京东App开屏广告、视频广告、曝光追踪、埋点上报、性能监控等
+  基于京东 iOS 15.5.10 冷启动抓包分析
+icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Advertising.png
+category: 去广告
+date: '2026-04-08'
+version: '1.0.0'
+
+rules:
+  # --- 广告配置服务器 ---
+  - DOMAIN,ccc-wt.jd.com,REJECT
+  - DOMAIN,ccc-x.jd.com,REJECT
+
+  # --- 广告曝光/追踪像素 ---
+  - DOMAIN,im-x.jd.com,REJECT
+  - DOMAIN,sh.jd.com,REJECT
+
+  # --- SDK 埋点上报 (43 次/次启动) ---
+  - DOMAIN,mars.jd.com,REJECT
+
+  # --- 性能监控上报 (40 次/次启动) ---
+  - DOMAIN,perf.m.jd.com,REJECT
+  - DOMAIN,h5speed.m.jd.com,REJECT
+
+  # --- 其他日志/上报 ---
+  - DOMAIN,mllog.jd.com,REJECT
+  - DOMAIN,uranus.jd.com,REJECT
+  - DOMAIN,policy.jd.com,REJECT
+  - DOMAIN,dsap.jd.com,REJECT
+  - DOMAIN,ex.m.jd.com,REJECT
+  - DOMAIN,anti-sdk-report.m.jd.com,REJECT
+  - DOMAIN,cactus.jd.com,REJECT
+
+  # --- 网络诊断探测 ---
+  - DOMAIN-SUFFIX,jddebug.com,REJECT
+
+http:
+  url-rewrite:
+    # 开屏全屏广告图 (s1125x2436 = iPhone 全面屏尺寸)
+    - ^https?:\/\/m\.360buyimg\.com\/mobilecms\/s1125x2436_jfs\/ - reject-img
+    # 开屏视频广告素材
+    - ^https?:\/\/vod\.300hu\.com\/ - reject-dict
