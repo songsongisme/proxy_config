@@ -1,0 +1,85 @@
+# 规则名称: MicrosoftDirect
+# 规则统计: 65
+# 说明: 在中国大陆可直连的微软服务
+
+# Azure
+DOMAIN-SUFFIX,azure.com
+DOMAIN-SUFFIX,azure.net
+DOMAIN-SUFFIX,azureedge.net
+DOMAIN-SUFFIX,azureiotcentral.com
+DOMAIN-SUFFIX,azurerms.com
+DOMAIN-SUFFIX,cloudapp.net
+DOMAIN-SUFFIX,trafficmanager.net
+DOMAIN-SUFFIX,windows.net
+DOMAIN-SUFFIX,windowsazure.com
+
+# Bing
+DOMAIN-SUFFIX,bing.com
+DOMAIN-SUFFIX,bing.net
+DOMAIN-SUFFIX,bingapis.com
+
+# Office 365
+DOMAIN-SUFFIX,office.com
+DOMAIN-SUFFIX,office.net
+DOMAIN-SUFFIX,office365.com
+DOMAIN-SUFFIX,officeppe.net
+DOMAIN-SUFFIX,o365weve.com
+DOMAIN-SUFFIX,oaspapps.com
+DOMAIN-SUFFIX,sharepoint.com
+DOMAIN-SUFFIX,sharepointonline.com
+DOMAIN-SUFFIX,sfbassets.com
+DOMAIN-SUFFIX,sfx.ms
+
+# Outlook / 邮箱
+DOMAIN-SUFFIX,hotmail.com
+DOMAIN-SUFFIX,live.com
+DOMAIN-SUFFIX,live.net
+DOMAIN-SUFFIX,outlook.com
+DOMAIN-SUFFIX,outlookmobile.com
+
+# MSN
+DOMAIN-SUFFIX,msn.cn
+DOMAIN-SUFFIX,msn.com
+
+# Windows 更新
+DOMAIN-SUFFIX,windows.com
+DOMAIN-SUFFIX,windows-ppe.net
+DOMAIN-SUFFIX,windowsupdate.com
+
+# 认证 / CDN
+DOMAIN-SUFFIX,aadrm.com
+DOMAIN-SUFFIX,akadns.net
+DOMAIN-SUFFIX,aspnetcdn.com
+DOMAIN-SUFFIX,cloudappsecurity.com
+DOMAIN-SUFFIX,edgesuite.net
+DOMAIN-SUFFIX,gfx.ms
+DOMAIN-SUFFIX,msappproxy.net
+DOMAIN-SUFFIX,msauth.net
+DOMAIN-SUFFIX,msauthimages.net
+DOMAIN-SUFFIX,msecnd.net
+DOMAIN-SUFFIX,msedge.net
+DOMAIN-SUFFIX,msft.net
+DOMAIN-SUFFIX,msftauth.net
+DOMAIN-SUFFIX,msftauthimages.net
+DOMAIN-SUFFIX,msftidentity.com
+DOMAIN-SUFFIX,msidentity.com
+DOMAIN-SUFFIX,msocdn.com
+DOMAIN-SUFFIX,msocsp.com
+DOMAIN-SUFFIX,mstea.ms
+DOMAIN-SUFFIX,omniroot.com
+DOMAIN-SUFFIX,phonefactor.net
+DOMAIN-SUFFIX,public-trust.com
+DOMAIN-SUFFIX,svc.ms
+DOMAIN-SUFFIX,virtualearth.net
+
+# 其他微软服务
+DOMAIN-SUFFIX,acompli.com
+DOMAIN-SUFFIX,acompli.net
+DOMAIN-SUFFIX,assets-yammer.com
+DOMAIN-SUFFIX,staffhub.ms
+DOMAIN-SUFFIX,uservoice.com
+DOMAIN-SUFFIX,wunderlist.com
+DOMAIN-SUFFIX,yammer.com
+DOMAIN-SUFFIX,yammerusercontent.com
+
+DOMAIN-KEYWORD,microsoft

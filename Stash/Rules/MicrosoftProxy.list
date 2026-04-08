@@ -1,0 +1,27 @@
+# 规则名称: MicrosoftProxy
+# 规则统计: 12
+# 说明: 在中国大陆直连不稳定或不可用的微软服务
+
+# Skype (国内基本不可用)
+DOMAIN-SUFFIX,lync.com
+DOMAIN-SUFFIX,skype.com
+DOMAIN-SUFFIX,skypeassets.com
+DOMAIN-SUFFIX,skypeforbusiness.com
+
+# Visual Studio (扩展市场/同步经常慢)
+DOMAIN-SUFFIX,visualstudio.com
+
+# OneNote (同步经常抽风)
+DOMAIN-SUFFIX,onenote.com
+DOMAIN-SUFFIX,onenote.net
+
+# Sway (国内访问不稳定)
+DOMAIN-SUFFIX,sway.com
+DOMAIN-SUFFIX,sway-cdn.com
+DOMAIN-SUFFIX,sway-extensions.com
+
+# 短链接 (目标经常在墙外)
+DOMAIN-SUFFIX,aka.ms
+
+# Microsoft Store 下载 (经常慢)
+DOMAIN-SUFFIX,onestore.ms
