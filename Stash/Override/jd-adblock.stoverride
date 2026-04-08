@@ -1,16 +1,21 @@
 name: 京东去广告净化
 desc: |-
-  拦截京东App开屏广告、视频广告、曝光追踪、埋点上报、性能监控等
-  基于京东 iOS 15.5.10 冷启动抓包分析
+  拦截京东App开屏广告、首页悬浮球、视频广告、页面弹窗、物流横幅、
+  曝光追踪、埋点上报、性能监控等
+  基于京东 iOS 15.5.10 冷启动抓包分析 + 社区验证方案
 icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Advertising.png
 category: 去广告
 date: '2026-04-08'
-version: '1.0.0'
+version: '2.0.0'
 
 rules:
   # --- 广告配置服务器 ---
   - DOMAIN,ccc-wt.jd.com,REJECT
   - DOMAIN,ccc-x.jd.com,REJECT
+
+  # --- 广告交换平台 ---
+  - DOMAIN,dsp-x.jd.com,REJECT
+  - DOMAIN,bdsp-x.jd.com,REJECT
 
   # --- 广告曝光/追踪像素 ---
   - DOMAIN,im-x.jd.com,REJECT
@@ -36,8 +41,52 @@ rules:
   - DOMAIN-SUFFIX,jddebug.com,REJECT
 
 http:
+  mitm:
+    - "api.m.jd.com"
   url-rewrite:
     # 开屏全屏广告图 (s1125x2436 = iPhone 全面屏尺寸)
     - ^https?:\/\/m\.360buyimg\.com\/mobilecms\/s1125x2436_jfs\/ - reject-img
     # 开屏视频广告素材
     - ^https?:\/\/vod\.300hu\.com\/ - reject-dict
+    # 直播浮窗
+    - ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=getWidgetV1052 - reject-200
+  script:
+    # 首页: 悬浮球、底部通栏、顶部动图、下拉二楼
+    - match: ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=welcomeHome
+      name: jd-adblock
+      type: response
+      require-body: true
+    # 开屏广告
+    - match: ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=start
+      name: jd-adblock
+      type: response
+      require-body: true
+    # "我的"页面: 右下角动图悬浮、弹窗、推荐流
+    - match: ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=personinfoBusiness
+      name: jd-adblock
+      type: response
+      require-body: true
+    # 物流页面横幅
+    - match: ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=deliverLayer
+      name: jd-adblock
+      type: response
+      require-body: true
+    - match: ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=orderTrackBusiness
+      name: jd-adblock
+      type: response
+      require-body: true
+    # 订单页面广告楼层
+    - match: ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=myOrderInfo
+      name: jd-adblock
+      type: response
+      require-body: true
+    # 新品页悬浮动图和下拉二楼
+    - match: ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=getTabHomeInfo
+      name: jd-adblock
+      type: response
+      require-body: true
+
+script-providers:
+  jd-adblock:
+    url: https://raw.githubusercontent.com/songsongisme/proxy_config/refs/heads/main/Stash/Scripts/jd-adblock.js
+    interval: 86400
