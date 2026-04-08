@@ -1,0 +1,73 @@
+name: 闲鱼去广告净化
+desc: |-
+  移除闲鱼开屏广告、信息流广告、搜索推荐、悬浮球等
+  原作: @ddgksf2013 (墨鱼) | 转写: Surge → Stash
+icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Advertising.png
+category: 去广告
+date: '2026-04-08'
+version: '1.0.0'
+
+http:
+  mitm:
+    - "acs.m.goofish.com"
+    - "g-acs.m.goofish.com"
+  url-rewrite:
+    - ^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop.*splash\.ads - reject-200
+    - ^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.idle\.ad\.expose - reject-200
+  script:
+    - match: ^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.user\.strategy\.list
+      name: goofish-adblock
+      type: response
+      require-body: true
+    - match: ^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.home\.circle\.list
+      name: goofish-adblock
+      type: response
+      require-body: true
+    - match: ^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.home\.nextfresh
+      name: goofish-adblock
+      type: response
+      require-body: true
+    - match: ^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.search\.shade
+      name: goofish-adblock
+      type: response
+      require-body: true
+    - match: ^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.item\.search\.activate
+      name: goofish-adblock
+      type: response
+      require-body: true
+    - match: ^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.search\.discover
+      name: goofish-adblock
+      type: response
+      require-body: true
+    - match: ^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.idle\.user\.page\.my\.adapter
+      name: goofish-adblock
+      type: response
+      require-body: true
+    - match: ^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.item\.buy\.feeds
+      name: goofish-adblock
+      type: response
+      require-body: true
+    - match: ^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.local\.home
+      name: goofish-adblock
+      type: response
+      require-body: true
+    - match: ^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.search$
+      name: goofish-adblock
+      type: response
+      require-body: true
+    - match: ^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.item\.recommend
+      name: goofish-adblock
+      type: response
+      require-body: true
+    - match: ^https?:\/\/[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){1,4}(:\d+)?\/amdc\/mobileDispatch
+      name: amdc
+      type: response
+      require-body: true
+
+script-providers:
+  goofish-adblock:
+    url: https://raw.githubusercontent.com/songsongisme/proxy_config/refs/heads/main/Stash/Scripts/goofish-adblock.js
+    interval: 86400
+  amdc:
+    url: https://raw.githubusercontent.com/songsongisme/proxy_config/refs/heads/main/Stash/Scripts/amdc.js
+    interval: 86400
