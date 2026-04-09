@@ -1,0 +1,22 @@
+name: CodingPlan 解锁售罄
+desc: |-
+  智谱 CodingPlan 限购商品解锁售罄状态
+  提前进入购买页面，到点直接下单
+icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Unlock.png
+category: 功能增强
+date: '2026-04-09'
+version: '1.0.0'
+
+http:
+  mitm:
+    - "bigmodel.cn"
+  script:
+    - match: ^https?:\/\/bigmodel\.cn\/api\/biz\/pay\/batch-preview
+      name: codingplan-unlock
+      type: response
+      require-body: true
+
+script-providers:
+  codingplan-unlock:
+    url: https://raw.githubusercontent.com/songsongisme/proxy_config/refs/heads/main/Stash/Scripts/codingplan-unlock.js
+    interval: 86400
