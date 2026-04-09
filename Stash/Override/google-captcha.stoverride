@@ -1,0 +1,28 @@
+name: Google 搜索人机验证
+desc: |-
+  遇到 Google 搜索验证码时，自动并发多节点重试
+  竞速返回最快成功结果，无需手动切换节点
+  参考: @NobyDa 原版脚本
+icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png
+category: 功能增强
+date: '2026-04-09'
+version: '1.0.0'
+
+http:
+  mitm:
+    - "www.google.com"
+    - "www.google.com.*"
+  script:
+    - match: ^https?:\/\/www\.google\.com(?:\.[a-z]+)?\/(?:search\?(?:|.+?&)q=|$)
+      name: google-captcha
+      type: response
+      require-body: true
+      timeout: 30
+      # 可选: 传入节点名正则来筛选用于重试的节点
+      # 不设置则随机使用所有可用节点
+      # argument: "香港|美国|日本"
+
+script-providers:
+  google-captcha:
+    url: https://raw.githubusercontent.com/songsongisme/proxy_config/refs/heads/main/Stash/Scripts/google-captcha.js
+    interval: 86400
