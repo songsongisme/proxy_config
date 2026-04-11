@@ -1,5 +1,5 @@
 # 规则名称: AI
-# 规则统计: 49
+# 规则统计: 52
 
 # Google / Gemini
 DOMAIN,ai.google.dev
@@ -43,6 +43,10 @@ DOMAIN-SUFFIX,claude.com
 # Cursor
 DOMAIN-SUFFIX,cursor.com
 DOMAIN-SUFFIX,cursor.sh
+
+# Qwen / Alibaba AI
+DOMAIN-SUFFIX,qwen.ai
+DOMAIN-SUFFIX,chat.qwen.ai
 
 # Other AI services
 DOMAIN-SUFFIX,clipdrop.co
